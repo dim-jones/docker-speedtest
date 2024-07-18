@@ -3,8 +3,9 @@ name: Build Docker Container
 on:
   push:
     branches:
-      - main
-      - master
+      # - main
+      # - master
+      - '*'
 
 jobs:
   docker:
@@ -25,4 +26,4 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: VOTRE_COMPTE/todo-app:1.1.0
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/speedtest
